@@ -16,8 +16,29 @@ def calculate_path_boost_for_masters(num_slaves):
 
     except ValueError:
         return "Invalid input. Please enter a valid integer."
+    
+
+def spell_fatigue_cost(spell_level, base_fatigue, caster_level):
+    try:
+        spell_level = int(spell_level)
+        base_fatigue = int(base_fatigue)
+        caster_level = int(caster_level)
+
+        final_fatigue = base_fatigue / (1 + caster_level - spell_level)
+
+        return f"Fatigue cost: {final_fatigue}"
+    
+    except ValueError:
+        return "Invalid input. Please enter a valid integer."
+
+    
 
 # Example usage:
-num_slaves = input("Enter the number of magic slaves: ")
-result = calculate_path_boost_for_masters(num_slaves)
-print(result)
+# num_slaves = input("Enter the number of magic slaves: ")
+# result = calculate_path_boost_for_masters(num_slaves)
+# print(result)
+    
+spell_level = input("Inform the spell level:")
+base_fatigue = input("Inform the base fatigue for the spell:")
+caster_level = input("Inform the caster level:")
+print(spell_fatigue_cost(spell_level, base_fatigue, caster_level))
